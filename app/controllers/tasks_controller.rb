@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :authenticate_user! , only: [:new, :create, :edit, :update, :destroy]
-  before_action :find_group_and_check_permission, only: [:edit, :update, :destroy]
+  before_action :find_task_and_check_permission, only: [:edit, :update, :destroy]
   def index
     @tasks = Task.all.recent.paginate(:page => params[:page], :per_page => 5)
   end
@@ -21,7 +21,7 @@ class TasksController < ApplicationController
   end
 
   def show
-   @task = Task.find(params[:id]).recent.paginate(:page => params[:page], :per_page => 5)
+
   end
 
   def edit
