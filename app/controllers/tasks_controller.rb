@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :authenticate_user! , only: [:new, :create]
+  before_action :authenticate_user! , only: [:new, :create, :edit, :update, :destroy]
   def index
     @tasks = Task.all
   end
@@ -11,7 +11,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.user = current_user
-    
+
     if @task.save
     redirect_to tasks_path
   else
@@ -25,10 +25,17 @@ class TasksController < ApplicationController
 
   def edit
     @task = Task.find(params[:id])
+    if current_user != @group.user
+      redirect_to root_path, alert: "You have no permission."
+    end
   end
 
   def update
     @task = Task.find(params[:id])
+    if current_user != @group.user
+      redirect_to root_path, alert: "You have no permission."
+    end
+
     if @task.update(task_params)
     redirect_to tasks_path
   else
@@ -38,6 +45,11 @@ end
 
   def destroy
     @task = Task.find(params[:id])
+    
+    if current_user != @group.user
+      redirect_to root_path, alert: "You have no permission."
+    end
+
     @task.destroy
     redirect_to tasks_path,notice: "删除成功"
   end
