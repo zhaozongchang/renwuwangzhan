@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :authenticate_user! , only: [:new, :create]
   def index
     @tasks = Task.all
   end
@@ -9,6 +10,8 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    @task.user = current_user
+    
     if @task.save
     redirect_to tasks_path
   else
@@ -31,7 +34,7 @@ class TasksController < ApplicationController
   else
     render :edit
   end
-end 
+end
 
   def destroy
     @task = Task.find(params[:id])

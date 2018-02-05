@@ -2,6 +2,10 @@
   <div class="form-task">
     <%= f.input :title, input_html: { class: "form-control"} %>
     <%= f.input :description, input_html: { class: "form-control"} %>
+    <%= f.input :unacommpolished, input_html: { class: "form-control"} %>
+    <%= f.input :buckle, input_html: { class: "form-control"} %>
+    <%= f.input :deduction, input_html: { class: "form-control"} %>
+    <%= f.input :score, input_html: { class: "form-control"} %>
   </div>
   <%= f.submit "Submit", class: "btn btn-primary", data: { disable_with: "Submiting..." } %>
 <% end %>
