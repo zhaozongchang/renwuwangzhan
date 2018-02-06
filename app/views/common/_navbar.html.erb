@@ -18,6 +18,9 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
+                      <% if current_user.admin? %>
+                      <li> <%= link_to("老板", admin_tasks_path) %> </li>
+                      <% end %>
                       <li> <%= link_to("我全部的任务", account_tasks_path) %></li>
                       <li> <%= link_to("未达成的任务", account_unacommpolished_index_path) %></li>
                       <li class="divider"> </li>
