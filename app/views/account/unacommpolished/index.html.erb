@@ -1,32 +1,36 @@
-<div class="col-md-12">
 
-  <h2 class="text-center"> 未完成的任务 </h2>
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th>发表时间</th>
-        <td>未达成</td>
-        <td>扣除</td>
-        <td>抵扣</td>
-        <td>得分</td>
-      </tr>
-    </thead>
-    <tbody>
-      <% @tasks.each do |task| %>
-        <tr>
-
-          <td><%= task.created_at %></td>
-          <td><%= task.unacommpolished %></td>
-          <td><%= task.buckle %></td>
-          <td><%= task.deduction %></td>
-          <td><%= task.score %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <div class="text-center">
-      <%= will_paginate @tasks %>
+<div class="col-md-10 col-contered">
+  <div class="panel panel-danger">
+    <div class="panel-heading">
+      <h3>未完成的任务</h3>
     </div>
+    <div class="panel-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>发表时间</th>
+            <td>未达成</td>
+            <td>扣除</td>
+            <td>抵扣</td>
+            <td>得分</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% @tasks.each do |task| %>
+            <tr>
 
+              <td><%= task.created_at %></td>
+              <td><%= task.unacommpolished %></td>
+              <td><%= task.buckle %></td>
+              <td><%= task.deduction %></td>
+              <td><%= task.score %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="text-center">
+          <%= will_paginate @tasks %>
+        </div>
+    </div>
+  </div>
 </div>

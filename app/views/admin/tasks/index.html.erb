@@ -1,44 +1,50 @@
-<div class="col-md-12">
-  <div class="task">
-    <%= link_to("新增任务", new_admin_task_path, class: "btn btn-default pull-right") %>
-    <%= link_to("未达成的任务", account_unacommpolished_index_path, class: "btn btn-default pull-right")%>
-  </div>
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <td>执行人</td>
-        <td>创建人 </td>
-        <th>发表时间</th>
-        <td>任务</td>
-        <td>未达成</td>
-        <td>扣除</td>
-        <td>抵扣</td>
-        <td>得分</td>
-      </tr>
-    </thead>
-    <tbody>
-      <% @tasks.each do |task| %>
-        <tr>
-          <td><%= link_to(task.title, admin_task_path(task)) %></td>
-          <td> <%= task.user.email %> </td>
-          <td><%= task.created_at %></td>
-          <td><%= simple_format(task.description) %></td>
-          <td><%= simple_format(task.unacommpolished) %></td>
-          <td><%= task.buckle %></td>
-          <td><%= task.deduction %></td>
-          <td><%= task.score %></td>
-          <td>
-              <%= link_to("Edit", edit_admin_task_path(task), class: "btn btn-sm btn-default")%>
-              <%= link_to("Delete", admin_task_path(task),    class: "btn btn-sm btn-default",
-                          method: :delete, data: { confirm: "Are you sure?" } )%>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  
-  <div class="text-center">
-      <%= will_paginate @tasks %>
-    </div>
 
+<div class="col-md-10 col-contered">
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3>管理列表
+        <%= link_to("新增任务", new_admin_task_path, class: "btn btn-default pull-right") %>
+        <%= link_to("未达成的任务", account_unacommpolished_index_path, class: "btn btn-default pull-right")%>
+    </h3>
+  </div>
+  <div class="panel-body">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <td>执行人</td>
+          <td>创建人 </td>
+          <td>发表时间</td>
+          <td>任务</td>
+          <td>未达成</td>
+          <td>扣除</td>
+          <td>抵扣</td>
+          <td>得分</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @tasks.each do |task| %>
+          <tr>
+            <td><%= link_to(task.title, admin_task_path(task)) %></td>
+            <td> <%= task.user.email %> </td>
+            <td><%= task.created_at %></td>
+            <td><%= simple_format(task.description) %></td>
+            <td><%= simple_format(task.unacommpolished) %></td>
+            <td><%= task.buckle %></td>
+            <td><%= task.deduction %></td>
+            <td><%= task.score %></td>
+            <td>
+                <%= link_to("Edit", edit_admin_task_path(task), class: "btn btn-sm label label-info")%>
+                <%= link_to("Delete", admin_task_path(task),    class: "btn btn-sm label label-warning",
+                            method: :delete, data: { confirm: "Are you sure?" } )%>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+      <div class="text-center">
+          <%= will_paginate @tasks %>
+        </div>
+    </div>
+  </div>
 </div>
