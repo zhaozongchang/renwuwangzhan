@@ -11,6 +11,10 @@ class Admin::TasksController < ApplicationController
     @task = Task.new
   end
 
+  def show
+    @task = Task.find(params[:id])
+  end
+
   def create
     @task = Task.new(task_params)
     @task.save
@@ -34,7 +38,7 @@ class Admin::TasksController < ApplicationController
     redirect_to admin_tasks_path, alert: "删除成功"
   end
 
-  
+
 
   private
 

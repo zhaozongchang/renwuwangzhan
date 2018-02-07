@@ -17,6 +17,66 @@
  @import "bootstrap";
 
 
+
+ //---------Navbar---------
+
+ .navbar-default {
+     background-color: #303030;
+     border-color: #212121;
+
+     border-radius: 0;
+ }
+
+ .navbar-default .navbar-brand {
+     color: #FF0000;
+     padding: 10px 15px;
+     line-height: 30px;
+ }
+
+ .navbar-default .navbar-brand:hover,
+ .navbar-default .navbar-brand:focus {
+     color: #FF9900;
+     background-color: transparent;
+ }
+
+ .navbar-default .navbar-nav > li > a {
+     color: #FF0000;
+ }
+
+ .navbar-default .navbar-nav > li > a:hover,
+ .navbar-default .navbar-nav > li > a:focus {
+     color: #FF9900;
+     background-color: transparent;
+ }
+
+ .navbar-default .navbar-nav > .active > a,
+ .navbar-default .navbar-nav > .active > a:hover,
+ .navbar-default .navbar-nav > .active > a:focus {
+     color: #FF0000;
+     background-color: #FF0000;
+ }
+
+ .navbar-default .navbar-nav > .open > a,
+ .navbar-default .navbar-nav > .open > a:focus,
+ .navbar-default .navbar-nav > .open > a:hover {
+     background-color: #FF6633;
+     color: #212121;
+ }
+
+
+
+//---------Footer---------
+
+
+footer{position:absolute;
+  bottom:0;
+  width:100%;
+  height:100px;
+  background-color: #D0D0D0;
+
+}
+
+
  //-----Common-----
 
  .col-contered {
