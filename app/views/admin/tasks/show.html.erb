@@ -13,22 +13,21 @@
       <thead>
         <tr>
           <td>任务</td>
+          <td>创建人</td>
           <td>未达成</td>
-
           <td>扣除</td>
           <td>抵扣</td>
-          <td>得分</td>
         </tr>
       </thead>
 
       <tbody>
         <tr>
           <td><%= simple_format(@task.description) %></td>
+          <td> <%= @task.user.email %> </td>
           <td><%= simple_format(@task.unacommpolished) %></td>
 
           <td><%= @task.buckle %></td>
           <td><%= @task.deduction %></td>
-          <td><%= @task.score %></td>
         </tr>
       </tbody>
      </table>
