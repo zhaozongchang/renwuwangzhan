@@ -8,24 +8,18 @@
       <table class="table">
         <thead>
           <tr>
-
-            <th>发表时间</th>
             <td>任务</td>
             <td>未达成</td>
-            <td>扣除</td>
-            <td>抵扣</td>
+            <th>发表时间</th>
             <td>得分</td>
           </tr>
         </thead>
         <tbody>
           <% @tasks.each do |task| %>
             <tr>
-
+              <td><%= simple_format(link_to(task.description,account_task_path(task))) %></td>
+              <td><%= simple_format(task.unacommpolished) %></td>
               <td><%= task.created_at %></td>
-              <td><%= task.description %></td>
-              <td><%= task.unacommpolished %></td>
-              <td><%= task.buckle %></td>
-              <td><%= task.deduction %></td>
               <td><%= task.score %></td>
               <td>
               <%= link_to("Edit", edit_account_task_path(task), class: "btn btn-sm label label-info")%>
@@ -37,6 +31,49 @@
           <% end %>
         </tbody>
       </table>
+
+      <div style="margin-left:auto;margin-right:20px;width:125px;background-color:Aqua;">
+
+          <p>
+           <span class="pull-right">
+                <span>
+                   <% sum = 0 %>
+                   <% @tasks.each do |task| %>
+                   <% %>
+                   <% sum = sum + task.buckle %>
+                   <% end %>
+                   <h4>扣除总计 <%= sum %> 分</h4>
+                </span>
+             </span>
+           </p>
+
+           <p>
+            <span class="pull-right">
+                 <span>
+                    <% sum = 0 %>
+                    <% @tasks.each do |task| %>
+                    <% %>
+                    <% sum = sum + task.deduction %>
+                    <% end %>
+                    <h4>抵扣总计 <%= sum %> 分</h4>
+                 </span>
+              </span>
+            </p>
+
+            <p>
+             <span class="pull-right">
+                  <span>
+                     <% sum = 0 %>
+                     <% @tasks.each do |task| %>
+                     <% %>
+                     <% sum = sum + task.score %>
+                     <% end %>
+                     <h4>得分总计 <%= sum %> 分</h4>
+                  </span>
+               </span>
+              </p>
+         </div>
+
 
       <div class="text-center">
           <%= will_paginate @tasks %>

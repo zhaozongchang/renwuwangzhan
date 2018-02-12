@@ -5,6 +5,10 @@ class Account::TasksController < ApplicationController
     @tasks = current_user.tasks.recent.paginate(:page => params[:page], :per_page => 8)
   end
 
+  def show
+    @task = Task.find(params[:id])
+  end
+
   def edit
     @task = Task.find(params[:id])
   end

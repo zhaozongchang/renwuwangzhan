@@ -17,9 +17,11 @@ class Admin::TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    @task.save
+    if @task.save
     redirect_to admin_tasks_path
-
+  else
+    render :new
+   end 
   end
 
   def edit
