@@ -15,6 +15,7 @@
             <td>任务</td>
             <td>发表时间</td>
             <td>创建人 </td>
+            <td>扣除</td>
             <td>得分</td>
           </tr>
         </thead>
@@ -24,7 +25,8 @@
           <tr>
             <td><%= simple_format(link_to(task.description,task_path(task))) %></td>
             <td><%= task.created_at %></td>
-            <td> <%= task.user.email %> </td>
+            <td><%= task.user.email %> </td>
+            <td><%= task.buckle %></td>
             <td><%= task.score %></td>
             <td>
                 <% if current_user && current_user == task.user %>
@@ -40,44 +42,20 @@
 
       <div style="margin-left:auto;margin-right:20px;width:125px;background-color:Aqua;">
 
-          <p>
-           <span class="pull-right">
-                <span>
-                   <% sum = 0 %>
-                   <% @tasks.each do |task| %>
-                   <% %>
-                   <% sum = sum + task.buckle %>
-                   <% end %>
-                   <h4>扣除总计 <%= sum %> 分</h4>
-                </span>
-             </span>
-           </p>
-
-           <p>
-            <span class="pull-right">
-                 <span>
-                    <% sum = 0 %>
-                    <% @tasks.each do |task| %>
-                    <% %>
-                    <% sum = sum + task.deduction %>
-                    <% end %>
-                    <h4>抵扣总计 <%= sum %> 分</h4>
-                 </span>
+        <p>
+         <span class="pull-right">
+              <span>
+                 <% sum = 0 %>
+                 <% @tasks.each do |task| %>
+                 <% %>
+                 <% sum = sum + task.score %>
+                 <% end %>
+                 <h4>扣除总计 <%= sum %> 分</h4>
               </span>
-            </p>
+           </span>
+         </p>
 
-            <p>
-             <span class="pull-right">
-                  <span>
-                     <% sum = 0 %>
-                     <% @tasks.each do |task| %>
-                     <% %>
-                     <% sum = sum + task.score %>
-                     <% end %>
-                     <h4>得分总计 <%= sum %> 分</h4>
-                  </span>
-               </span>
-              </p>
+         
          </div>
 
       <div class="text-center">
