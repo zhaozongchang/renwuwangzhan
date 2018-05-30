@@ -5,6 +5,10 @@ class Account::TasksController < ApplicationController
     @tasks = current_user.tasks.recent.paginate(:page => params[:page], :per_page => 8)
   end
 
+  def show
+    @task = Task.find(params[:id])
+  end
+
   def edit
     @task = Task.find(params[:id])
   end
@@ -12,7 +16,7 @@ class Account::TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     @task.update(task_params)
-    redirect_to account_tasks_path
+    redirect_to account_tasks_path, notice: "更新成功"
   end
 
 

@@ -1,0 +1,61 @@
+
+<div class="col-md-10 col-contered">
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3>管理列表
+        <%= link_to("新增任务", new_admin_task_path, class: "btn btn-default pull-right") %>
+        <%= link_to("未达成的任务", account_unacommpolished_index_path, class: "btn btn-default pull-right")%>
+    </h3>
+  </div>
+  <div class="panel-body">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <td>任务</td>
+            <td>发表时间</td>
+            <td>得分</td>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @tasks.each do |task| %>
+          <tr>
+            <td><%= simple_format(link_to(task.description,admin_task_path(task))) %></td>
+            <td><%= task.created_at %></td>
+            <td><%= task.score %></td>
+            <td>
+                <%= link_to("Edit", edit_task_path(task), class: "btn btn-sm label label-info")%>
+                <%= link_to("Delete", admin_task_path(task),    class: "btn btn-sm label label-warning",
+                            method: :delete, data: { confirm: "Are you sure?" } )%>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+
+      <div style="margin-left:auto;margin-right:20px;width:125px;background-color:Aqua;">
+
+            <p>
+             <span class="pull-right">
+                  <span>
+                     <% sum = 0 %>
+                     <% @tasks.each do |task| %>
+                     <% %>
+                     <% sum = sum + task.score %>
+                     <% end %>
+                     <h4>得分总计 <%= sum %> 分</h4>
+                  </span>
+               </span>
+              </p>
+
+              
+         </div>
+
+
+      <div class="text-center">
+          <%= will_paginate @tasks %>
+        </div>
+    </div>
+  </div>
+</div>
