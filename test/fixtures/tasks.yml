@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  unacommpolished: MyText
+  buckle: 1
+  deduction: 1
+  score: 1
+
+two:
+  title: MyString
+  description: MyText
+  unacommpolished: MyText
+  buckle: 1
+  deduction: 1
+  score: 1
