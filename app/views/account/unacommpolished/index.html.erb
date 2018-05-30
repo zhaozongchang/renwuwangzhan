@@ -1,0 +1,29 @@
+<div class="col-md-12">
+
+  <h2 class="text-center"> 未完成的任务 </h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>发表时间</th>
+        <td>未达成</td>
+        <td>扣除</td>
+        <td>抵扣</td>
+        <td>得分</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tasks.each do |task| %>
+        <tr>
+
+          <td><%= task.created_at %></td>
+          <td><%= task.unacommpolished %></td>
+          <td><%= task.buckle %></td>
+          <td><%= task.deduction %></td>
+          <td><%= task.score %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>

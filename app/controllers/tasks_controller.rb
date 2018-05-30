@@ -1,8 +1,8 @@
 class TasksController < ApplicationController
   before_action :authenticate_user! , only: [:new, :create, :edit, :update, :destroy]
-  before_action :find_group_and_check_permission, only: [:edit, :update, :destroy]
+  before_action :find_task_and_check_permission, only: [:edit, :update, :destroy]
   def index
-    @tasks = Task.all
+    @tasks = Task.all.recent.paginate(:page => params[:page], :per_page => 8)
   end
 
   def new
@@ -21,7 +21,7 @@ class TasksController < ApplicationController
   end
 
   def show
-   @task = Task.find(params[:id])
+
   end
 
   def edit
@@ -31,11 +31,13 @@ class TasksController < ApplicationController
   def update
 
     if @task.update(task_params)
-    redirect_to tasks_path
+    redirect_to tasks_path, notice: "更新成功"
   else
     render :edit
   end
 end
+
+
 
   def destroy
 

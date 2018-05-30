@@ -18,7 +18,10 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li> <%= link_to("登出", destroy_user_session_path, method: :delete) %> </li>
+                      <li> <%= link_to("我全部的任务", account_tasks_path) %></li>
+                      <li> <%= link_to("未达成的任务", account_unacommpolished_index_path) %></li>
+                      <li class="divider"> </li>
+                      <li> <%= link_to("登出", destroy_user_session_path, method: :delete) %> </li>
                     </ul>
                   </li>
                 <% end %>

@@ -1,0 +1,13 @@
+<div class="col-md-4 col-md-offset-4">
+    <h2>我的全部任务</h2>
+
+    <%= simple_form_for @task do |f| %>
+      <div class="form-task">
+        <%= f.input :description, input_html: { class: "form-control"} %>
+        <%= f.input :unacommpolished, input_html: { class: "form-control"} %>
+        <%= f.input :buckle, input_html: { class: "form-control"} %>
+        <%= f.input :deduction, input_html: { class: "form-control"} %>
+        <%= f.input :score, input_html: { class: "form-control"} %>
+      </div>
+      <%= f.submit "Submit", class: "btn btn-primary", data: { disable_with: "Submiting..." } %>
+    <% end %>
