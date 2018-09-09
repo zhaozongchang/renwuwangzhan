@@ -1,1 +1,117 @@
-<h1> Hello World! </h1>
+
+<style>
+  ul{
+    padding: 0;
+    margin: 0;
+  }
+  .sectionTitle,.sectionSmallTitle,.sectionThirdTitle{
+    opacity: 0;
+  }
+  .aniText-item-1 {
+    opacity: 0;
+    animation: aniTextShow 1s forwards;
+  }
+  .aniText-item-2 {
+    opacity: 0;
+    animation: aniTextShow 1s 0.2s forwards;
+  }
+  .aniText-item-3 {
+    opacity: 0;
+    animation: aniTextShow 1s 0.4s forwards;
+  }
+  @keyframes aniTextShow {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<body>
+
+  <div class="jumbotron">
+      <h1 class="title"><font color="white">第九块智能办公系统</font></h1>
+      <p class="slogan">
+        <font color="white">
+      <h2 class="icon-txt icon1 aniText-item-3 webNormalText">你还在为完不成工作而苦恼吗？</h2>
+
+       <h2 class="icon-txt icon1 aniText-item-3 webNormalText">你是否被数多任务压得焦头烂额！！</h2>
+       <br>
+       <h4 class="icon-txt icon1 aniText-item-3 webNormalText">第九块智能办公系统是专门为企业、个人打造的一款智能办公系统。
+          <br class="icon-txt icon1 aniText-item-3 webNormalText">快速解决任务多、乱、无头绪的问题。</h4>
+          </font>
+      </p>
+      <p class="lead"><a class="btn btn-lg btn-danger" href="/tasks">Book New</a></p>
+    </div>
+
+    <div class="content-section-a">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 col-sm-6">
+          <hr class="section-heading-spacer">
+          <div class="clearfix"></div>
+          <h2 class="icon-txt icon1 aniText-item-3 webNormalText"><font color="#0000FF">35余种免费办公协作套件</font></h2>
+          <h4 class="icon-txt icon1 aniText-item-3 webNormalText"><font color="black">含有任务管理器、社交沟通工具、在线文档、视频会议、电子邮件等应有尽有，方便快捷！！</font></h4>
+        </div>
+        <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+          <li ><%= image_tag 'pic-1.png', class: 'img-responsive' %></li>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section-b">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 col-lg-offset-1 col-sm-push-6 col-sm-6">
+          <hr class="section-heading-spacer">
+          <div class="clearfix"></div>
+          <h2 class="icon-txt icon1 aniText-item-3 webNormalText"><font color="#00FFFF">不到一小时轻松掌握使用技巧</font></h2>
+          <h4 class="icon-txt icon1 aniText-item-3 webNormalText"><font color="black"></font>优化繁琐的操作流程，让操作得心应手！！</h4>
+        </div>
+        <div class="col-lg-5 col-sm-pull-6 col-sm-6">
+          <%= image_tag 'pic-2.jpg', class: 'img-responsive' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section-a">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 col-sm-6">
+          <hr class="section-heading-spacer">
+          <div class="clearfix"></div>
+          <h2 class="icon-txt icon1 aniText-item-3 webNormalText">
+            <font color="#FF00FF">全面为企业信息安全保驾护航</font></h2>
+          <h4 class="icon-txt icon1 aniText-item-3 webNormalText">
+            <font color="black"></font>沟通内容加密、企业密钥、安全防御体系让数据享受国密级别安全保护。</h4>
+        </div>
+        <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+         <li ><%= image_tag 'pic-3.jpg', class: 'img-responsive' %></li>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section-b">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 col-lg-offset-1 col-sm-push-6 col-sm-6">
+          <hr class="section-heading-spacer">
+          <div class="clearfix"></div>
+          <h2 class="icon-txt icon1 aniText-item-3 webNormalText">
+            <font color="#00FFFF">不到一小时轻松掌握使用技巧</font></h2>
+          <h4 class="icon-txt icon1 aniText-item-3 webNormalText"><font color="black"></font>优化繁琐的操作流程，让操作得心应手！！</h4>
+        </div>
+        <div class="col-lg-5 col-sm-pull-6 col-sm-6">
+          <%= image_tag 'pic-222.png', class: 'img-responsive' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
